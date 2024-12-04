@@ -5,7 +5,7 @@ public class SolarSystem {
     // Class variables
     private String name;
     // array list for planet objects
-    private ArrayList<Planet> planets;
+    private ArrayList<Planet> planets = new ArrayList<>();
 
     // Constructor
     public SolarSystem(String name) {
@@ -30,19 +30,18 @@ public class SolarSystem {
         this.name = name;
     }
 
-    // Method to print Solar system info
-    public void toString(String name,
-            ArrayList<Planet> planets) {
-        for (int i = 0; i < planets.size(); i++) {
-            System.out.println("Star" + name + "has planets: ");
-            // Get the planet object
-            Planet planet = planets.get(i);
-            // calculate planet period
+    //To string method bank example:
+    public String toString(String planetName, double distance) {
+        String planetString = "";
+        String solarString = "";
+        for (Planet planet : planets) {
+            //calculate period for each planet
             double period = Planet.orbitalPeriod(planet.getDistance());
-            System.out
-                    .println(planet.getPlanetName() + " is " + planet.getDistance() + "AU from its star, and orbits in "
-                            + period + "years");
+            solarString = "Star" + name + "has planets: \n";
+            planetString = planetName + " is " + distance
+                    + "AU from its star, and orbits in " + period + "years";
         }
+        return solarString + planetString;
     }
 
     // Method for adding planets

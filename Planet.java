@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Planet {
     // Class variables
     private String planetName;
